@@ -18,20 +18,20 @@ public class IngredientTest {
     public void testGetName() {
         String actual = ingredient.getName();
         String expected = "цезарь";
-        assertEquals(expected, actual);
+        assertEquals("Ingredient`s name is not get", expected, actual);
     }
 
     @Test
     public void testGetPrice() {
         float actual = ingredient.getPrice();
         float expected = 60;
-        assertEquals(expected, actual, 0);
+        assertEquals("Ingredient`s price is not get", expected, actual, 0);
     }
 
     @Test
-    public void testGetType(){
+    public void testGetType() {
         IngredientType actual = ingredient.getType();
         IngredientType expected = IngredientType.SAUCE;
-        assertEquals(expected, actual);
+        assertEquals("Ingredient`s type is not get", expected, actual);
     }
 }

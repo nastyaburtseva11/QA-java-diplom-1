@@ -5,10 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
-
 @RunWith(Parameterized.class)
 
 public class IngredientTypeTest {
@@ -33,7 +29,7 @@ public class IngredientTypeTest {
     }
 
     @Test
-    public void testIngredientType(){
+    public void testIngredientType() {
         boolean actual = true;
         try {
             String actualType = IngredientType.valueOf(type).toString();
@@ -41,7 +37,7 @@ public class IngredientTypeTest {
         } catch (IllegalArgumentException e) {
             actual = false;
         }
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals("Incorrect ingredient type", expected, actual);
     }
 
 }

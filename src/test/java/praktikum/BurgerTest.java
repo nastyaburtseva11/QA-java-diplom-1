@@ -18,25 +18,23 @@ import static praktikum.IngredientType.SAUCE;
 public class BurgerTest {
 
     Burger burger;
+    @Mock
+    Bun bun;
+    @Mock
+    Ingredient ingredient;
+    @Mock
+    List<Ingredient> ingredients;
 
     @Before
     public void createBurger() {
         burger = new Burger();
     }
 
-    @Mock
-    Bun bun;
-
     @Test
     public void testSetBuns() {
         burger.setBuns(bun);
-        Assert.assertEquals(bun, burger.bun);
+        Assert.assertEquals("Bun is not set", bun, burger.bun);
     }
-
-    @Mock
-    Ingredient ingredient;
-    @Mock
-    List<Ingredient> ingredients;
 
     @Test
     public void testAddIngredient() {
@@ -76,10 +74,11 @@ public class BurgerTest {
         }
         float expectedPrice = (bunPrice * 2) + (3 * ingredientPrice);
         float actualPrice = burger.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0);
+        assertEquals("Incorrect price for burger", expectedPrice, actualPrice, 0);
     }
+
     @Test
-    public void testGetReceipt(){
+    public void testGetReceipt() {
         String bunName = "red bun";
         float bunPrice = 100.000000f;
         IngredientType ingredientType = SAUCE;
@@ -98,6 +97,6 @@ public class BurgerTest {
                 bunName, ingredientType.toString().toLowerCase(), ingredientName, bunName,
                 (bunPrice * 2 + ingredientPrice)));
         String expectedReceipt = stringBuildReceipt.toString();
-        Assert.assertEquals(expectedReceipt, actualReceipt);
+        Assert.assertEquals("Incorrect receipt", expectedReceipt, actualReceipt);
     }
 }
